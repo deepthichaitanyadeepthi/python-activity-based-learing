@@ -1,0 +1,34 @@
+name = input("Enter patient name: ")
+
+consultation = float(input("Enter consultation charges: "))
+diagnostic = float(input("Enter diagnostic charges: "))
+treatment = float(input("Enter treatment charges: "))
+
+total = consultation + diagnostic + treatment
+
+# Apply concession
+if total >= 5000:
+    concession = total * 0.10
+else:
+    concession = 0
+
+bill = total - concession
+
+print("\n--- Hospital Bill ---")
+print("Patient Name:", name)
+print("Consultation Charges:", consultation)
+print("Diagnostic Charges:", diagnostic)
+print("Treatment Charges:", treatment)
+print("Total Charges:", total)
+print("Concession:", concession)
+print("Final Bill:", bill)
+
+# Validate billing constraints
+if consultation < 0 or diagnostic < 0 or treatment < 0:
+    print("Invalid billing amount")
+elif bill <= 1000:
+    print("Patient Classification: Low Payment")
+elif bill <= 5000:
+    print("Patient Classification: Medium Payment")
+else:
+    print("Patient Classification: High Payment")
